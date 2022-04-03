@@ -7,17 +7,21 @@ class Game {
         this.ball = null;
         this.spaceship = null;
         this.velocity = 1;
-        this.init()
+
+        this.init();
+       
     }
 
-    
+    // create new class instances
     init() {
         // create new background
         this.background = new Background(this.canvas, this.ctx);
         // ball
         this.ball = new Ball(this.canvas, this.ctx);
         //spaceship
-        this.spaceship = new Spaceship(this.canvas, this.ctx);
+        this.spaceship = new Spaceship(this.canvas, this.ctx, this.ball);
+
+       
     }
 
 
@@ -32,11 +36,15 @@ class Game {
             this.ball.move();
             this.ball.bounce();
             this.spaceship.draw();
+                // only call if you collide with the spaceship
+            if(this.spaceship.collisionCheck()) {
+                // revert the ball direction
+                this.ball.bounceOnSpaceship()
+            }
         },1000/60)
     }
     
     movement(){
-        this.spaceship.move();
     }
 
 
@@ -44,14 +52,7 @@ class Game {
         this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
     }
 
-  
-
-    // check for collision
-
-
-
 }
-
 
 const game = new Game()
 game.updateAll()

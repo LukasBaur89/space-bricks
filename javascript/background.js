@@ -50,9 +50,10 @@ class Background {
         this.coordinateY += this.movementSpeed;
         this.coordinateY%=this.height;
 
+
     }
     
 
-    // limit width and height to keep spaceship inner my canvas
+
 
 }

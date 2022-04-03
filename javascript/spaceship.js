@@ -1,5 +1,5 @@
 class Spaceship{
-    constructor(canvas,ctx){
+    constructor(canvas,ctx, ball){
         this.canvas = canvas;
         this.ctx = ctx;
         this.spaceShipX = 500;
@@ -8,6 +8,14 @@ class Spaceship{
         this.height = 200;
         this.speedX = 30;
         this.speedY = 30;
+        this.ball = ball
+
+        // use ball coordinates from ball.js
+        // this.ballX = ball.ballX;
+        // this.ballY = ball.ballY;
+
+        
+
         this.init();
     }
 
@@ -15,6 +23,7 @@ class Spaceship{
     init(){
         this.image = new Image();
         this.image.src = "/images/spaceship.png"
+        this.createEventListeners()
     }
 
     draw(){
@@ -30,27 +39,59 @@ class Spaceship{
         }
     }
 
+    // calling move method whenever I press a key, just creates one eventListener
+    createEventListeners() {
+        document.addEventListener("keydown", (event)=> this.move(event))
+    }
+
    
-    move(){
+    move(e){
         // define arrow keys to move spaceship
-        document.addEventListener("keydown", (event)=>{
-            switch(event.key){
+        
+            switch(e.key){
                 case "ArrowLeft":
-                    event.key === 37;
+                    // event.key === 37;
                     this.spaceShipX -= this.speedX;
                     break;
                 case "ArrowRight":
-                    event.key === 39;
-                    this.spaceShipX += this.speedY;
+                    // event.key === 39;
+                    this.spaceShipX += this.speedX;
                     break;
             }
 
-            // spaceship position should not exceed width
-            if(this.spaceShipX > this.canvas.width){
-                this.canvas.innerWidth
+            // prevent spaceship from leaving canvas
+            if(this.spaceShipX < 0){
+                this.spaceShipX = 0
             }
-        })
+            if(this.spaceShipX > this.canvas.width - this.width){
+                this.spaceShipX-=this.speedX;
+            }
+    
     }
+
+    
+
+
+    collisionCheck(){
+        
+        const shipLeftEdge = this.spaceShipX;
+        const shipRightEdge = shipLeftEdge + this.width;
+        const shipTopEdge = this.spaceShipY;
+        const shipBottomEdge = shipTopEdge + this.height;
+        if(this.ball.ballX > shipLeftEdge
+            && this.ball.ballX < shipRightEdge
+            && this.ball.ballY > shipTopEdge
+            && this.ball.ballY < shipBottomEdge){
+             console.log("ironhack")   
+                return true
+            } else {
+                return false
+            }
+    }
+
+    
+
+
 
 
 }

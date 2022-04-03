@@ -9,5 +9,9 @@ class Brick{
 
     }
 
+    // 3. add multiple bricks
+
+    // color bricks
+
 
 }

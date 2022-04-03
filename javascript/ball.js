@@ -6,8 +6,11 @@ class Ball{
         //requiremenets
         this.ballX = 30;
         this.ballY = 30;
-        this.ballSpeedX = 3;
-        this.ballSpeedY = 3;
+        // this.ballSpeedX = 5;
+        // this.ballSpeedY = 5;
+        this.ballSpeed = 5
+        this.directionX = 1
+        this.directionY = 1
     }
 
     draw(){
@@ -19,33 +22,38 @@ class Ball{
 
     move(){
         //make the ball move
-        this.ballX+=this.ballSpeedX
-        this.ballY+=this.ballSpeedY
+        this.ballX+=this.ballSpeed * this.directionX
+        this.ballY+=this.ballSpeed * this.directionY
 
-        
-        /* if(ballY > this.canvas.height){
-            this.ballSpeedY *= -1
-        } */
     }
 
     bounce(){
-        if(this.ballX > this.canvas.width-30){
-            this.ballSpeedX -= 1
+        //  *= to revert directions
+        if(this.ballX > this.canvas.width-20){
+            // this.ballSpeedX -= 1
+            this.directionX *= -1 
         }
-        if(this.ballX < 30){
-            this.ballSpeedX += 1
+        if(this.ballX <= 20){
+            // this.ballSpeedX += 1
+            this.directionX *= -1
         }
-        if(this.ballY > this.canvas.height-30){
-            this.ballSpeedY -= 1
+        if(this.ballY > this.canvas.height-20){
+            // this.ballSpeedY -= 1
+            this.directionY *= -1
         }
-        if(this.ballY < 30){
-            this.ballSpeedY += 1
+        if(this.ballY <= 20){
+            // this.ballSpeedY += 1
+            this.directionY *= -1
         }
         
 
     }
 
+    // add method bounceOnSpaceship (reverty)
+    bounceOnSpaceship() {
+        this.directionY *= -1
+    }
 
-    // reset ball position to the center if ball leaves bottom screen
+
 
 }
