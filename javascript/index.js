@@ -7,6 +7,7 @@ class Game {
         this.ball = null;
         this.spaceship = null;
         this.velocity = 1;
+        this.brick = null;
 
         this.init();
        
@@ -20,6 +21,8 @@ class Game {
         this.ball = new Ball(this.canvas, this.ctx);
         //spaceship
         this.spaceship = new Spaceship(this.canvas, this.ctx, this.ball);
+        // brick
+        this.brick = new Brick(this.canvas, this.ctx)
 
        
     }
@@ -36,16 +39,24 @@ class Game {
             this.ball.move();
             this.ball.bounce();
             this.spaceship.draw();
-                // only call if you collide with the spaceship
+            this.brick.drawBrickGrid();
+            this.brick.drawAllBricks();
+            // o: new bricks drawn as array
+            // only call if you collide with the spaceship
             if(this.spaceship.collisionCheck()) {
                 // revert the ball direction
                 this.ball.bounceOnSpaceship()
             }
         },1000/60)
     }
-    
     movement(){
+       
     }
+    
+    drawBrick(){
+    }
+    
+
 
 
     clearCanvas(){

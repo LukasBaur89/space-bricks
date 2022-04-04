@@ -81,8 +81,7 @@ class Spaceship{
         if(this.ball.ballX > shipLeftEdge
             && this.ball.ballX < shipRightEdge
             && this.ball.ballY > shipTopEdge
-            && this.ball.ballY < shipBottomEdge){
-             console.log("ironhack")   
+            && this.ball.ballY < shipBottomEdge){  
                 return true
             } else {
                 return false
