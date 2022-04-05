@@ -49,7 +49,7 @@ class Ball{
 
     }
 
-    // add method bounceOnSpaceship (reverty)
+    // add method bounceOnSpaceship (revertY)
     bounceOnSpaceship() {
         this.directionY *= -1
     }
