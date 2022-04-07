@@ -6,27 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>SpaceBricks</title>
     <!--styles-->
+    <link href="//db.onlinewebfonts.com/c/b6b659335771a5cd77643294d0f6c6a4?family=Arkanoid+Solid" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 <body>
     <div class="container">
+        <!--add button turn on sound-->
 
+        <!--add button turn off sound-->
         <div class="splash-screen container">
-
-
+            <article class="container-instructions">
+                <h1>SpaceBricks</h1>
+                <p>Navigate the spaceship through space by using the left and right arrow keys, destroy the evil spaceBricks that have conquered the universe and become a hero.</p>
+                <button id="start" onclick="startGame()">Press start</button>
+            </article>
         </div>
-        <div></div>
-        <div></div>
+
+            <div class="game-screen container hidden">
+                <div class="scoreboard">
+                    <div class="remain-lives">
+                        <img src="./images/lives.png"alt="lives">
+                        <p class="lives"></p>
+                    </div>
+                    <div class="score">
+                        <img src="./images/star.png"alt="star">
+                        <p class="your-score"></p>
+                    </div>
+                </div>
+                <canvas id="canvas" width="1200" height="900"></canvas>
+            </div>
+
+        <div class="game-over-screen container hidden">
+            <h1>Game Over</h1>
+            <button id="restart" onclick="restartGame()">Try again</button>
+        </div>
+
+        <div class="game-win-screen container hidden">
+            <h1>You won the game</h1>
+            <button id="play-again" onclick="restartGame()">Play another game</button>
+        </div>
+       
         
     </div>
 
-    <canvas id="canvas" width="1200" height="900"></canvas>
 
     <!--add script tags here-->
+    <script src="./javascript/gamestate.js"></script>
     <script src="./javascript/brick.js"></script>
     <script src="./javascript/spaceship.js"></script>
     <script src="./javascript/ball.js"></script>
     <script src="./javascript/background.js"></script>
     <script src="./javascript/index.js"></script>
+    <script src="C:\Users\User\Desktop\howler.js\dist\howler.js"></script>
 </body>
 </html>

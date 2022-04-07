@@ -1,3 +1,5 @@
+/* const { Howl } = require("../../howler.js/dist/howler"); */
+
 // define class
 class Game {
     constructor() {
@@ -6,8 +8,13 @@ class Game {
         this.background= null;
         this.ball = null;
         this.spaceship = null;
-        this.velocity = 1;
         this.brick = null;
+        /* const sound = new Howl({
+            urls: []
+        }).play() */
+
+        /* this.startBtn = document.querySelector(".start");
+        this.restartBtn = document.querySelector(".restartBtn"); */
 
         this.init();
        
@@ -15,23 +22,25 @@ class Game {
 
     // create new class instances
     init() {
-        // create new background
+        // new Game
+        this.showGame = new Gamestate (this.canvas, this.ctx, this);
+        
+        this.showGame.showSplashScreen();
+        
+
+        // background
         this.background = new Background(this.canvas, this.ctx);
         // ball
-        this.ball = new Ball(this.canvas, this.ctx);
+        this.ball = new Ball(this.canvas, this.ctx, this.showGame);
         //spaceship
         this.spaceship = new Spaceship(this.canvas, this.ctx, this.ball);
         // brick
-        this.brick = new Brick(this.canvas, this.ctx, this.ball)
-
-       
+        this.brick = new Brick(this.canvas, this.ctx, this.ball) 
     }
-
-
+    
+    
     updateAll() {
-        // update background
-        // add movemenet
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             this.clearCanvas();
             this.background.move();
             this.background.draw();
@@ -41,6 +50,7 @@ class Game {
             this.spaceship.draw();
             this.brick.drawAllBricks();
             this.brick.collisionWithBallAndBricks()
+            this.brick.drawScore();
             // o: new bricks drawn as array
             // only call if you collide with the spaceship
             if(this.spaceship.collisionCheck()) {
@@ -50,26 +60,24 @@ class Game {
             
         },1000/60)
     }
-    movement(){
-        /* if(this.brick.collisionWithBallAndBricks()) {
-            // revert the ball direction
-            this.ball.removeBrick()
-        } */
-        
-        }
-    
-    
-
-    
-
-
 
     clearCanvas(){
         this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
     }
+    
+
+    reset(){
+        cancelAnimationFrame(this.intervalId);
+        this.background = null;
+        this.ball = null;
+        this.spaceship = null;
+        this.brick = null;
+    
+    }
+
 
 }
 
-const game = new Game()
-game.updateAll()
-game.movement()
+const game = new Game();
+game.updateAll();
+

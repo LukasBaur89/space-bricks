@@ -1,16 +1,22 @@
 class Ball{
-    constructor(canvas, ctx){
+    constructor(canvas, ctx, gamestate){
         this.canvas = canvas;
         this.ctx = ctx;
+        this.gamestate = gamestate;
+
 
         //requiremenets
         this.ballX = 30;
         this.ballY = 30;
-        // this.ballSpeedX = 5;
-        // this.ballSpeedY = 5;
-        this.ballSpeed = 5
-        this.directionX = 1
-        this.directionY = 1
+        this.ballSpeed = 4;
+        this.directionX = 1;
+        this.directionY = 1;
+
+        this.lives = document.querySelector(".lives");
+        this.livesRemaining = 3;
+
+        this.resetBall();
+        this.drawLives();
     }
 
     draw(){
@@ -39,7 +45,10 @@ class Ball{
         }
         if(this.ballY > this.canvas.height-20){
             // this.ballSpeedY -= 1
-            this.directionY *= -1
+            /* this.directionY *= -1 */
+            
+            this.drawLives();
+
         }
         if(this.ballY <= 20){
             // this.ballSpeedY += 1
@@ -52,6 +61,26 @@ class Ball{
     // add method bounceOnSpaceship (revertY)
     bounceOnSpaceship() {
         this.directionY *= -1
+    }
+
+    // reset ball to middle of screen
+    resetBall(){
+        // x and y position, height, width -> should return width and height / 2
+        this.ballX = this.canvas.width/2;
+        this.ballY = this.canvas.height-500
+    }
+
+    drawLives(){
+        if(this.livesRemaining > 0){
+            this.livesRemaining-=1;
+            this.resetBall()
+        } else {
+            this.gamestate.showGameOverScreen();
+        }
+
+        this.ctx.fillStyle = "white";
+        /* this.ctx.font = "40px" */
+        this.lives.innerHTML = this.livesRemaining;
     }
 
 

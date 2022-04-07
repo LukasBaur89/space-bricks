@@ -1,29 +1,32 @@
 class Brick{
-    constructor(canvas, ctx, ball){
+    constructor(canvas, ctx, ball, gamestate){
         this.canvas = canvas;
         this.ctx = ctx;
         this.ball = ball;
-
-        
+        this.gamestate = gamestate;
 
         // default variables
-        this.brickRows = 7;
-        this.brickColumns = 20;
+        this.brickRows = 4;
+        this.brickColumns = 17;
         
     
-        this.brickX = 0,
-        this.brickY = 0,
-        this.width = 50,
-        this.height = 25,
-        this.spaceBetweenX = 20,
-        this.spaceBetweenY = 20,
-        this.color = "white"
-        
+        this.brickX = 0;
+        this.brickY = 0;
+        this.width = 50;
+        this.height = 25;
+        this.spaceBetweenX = 20;
+        this.spaceBetweenY = 20;
+        this.color = this.drawRandomColor();
 
         this.brickArray = [];
-        console.log(this.brickArray)
-        this.createBrickArray()
+        this.createBrickArray();
+
+        this.yourScore = document.querySelector(".your-score");
+        this.score = 0;
+        this.scoreCount = 10;
+
     }
+
             
         createBrickArray(){
             // create grid: loop over brickRows, brickColumns
@@ -37,6 +40,7 @@ class Brick{
                         brickX: c*(this.spaceBetweenX + this.width) + this.spaceBetweenX,
                         brickY: r*(this.spaceBetweenY + this.height) + this.spaceBetweenY,
                         status: 1,
+                        color: this.drawRandomColor()
                         // add value 2 and 3 status
                     };     
                 }
@@ -48,15 +52,15 @@ class Brick{
             for (let r=0; r<this.brickRows; r++){
                 for(let c=0; c<this.brickColumns; c++){
                     // check if brick loads correctly, then draw bricks
-        
-                    // console.log(this.brickArray[r][c].status ===0)
                     if(this.brickArray[r][c].status > 0){
-                        this.ctx.fillStyle = this.color
+                        this.ctx.fillStyle = this.brickArray[r][c].color
                         this.ctx.fillRect(this.brickArray[r][c].brickX, this.brickArray[r][c].brickY, this.width, this.height )
                     }
                 }
             }
         } 
+
+        
               
         
         collisionWithBallAndBricks(){
@@ -80,8 +84,9 @@ class Brick{
                         && this.ball.ballY < brickBottomEdge){  
                             // should return status 0, invert directionY 
                             this.brickArray[r][c].status = 0;
-                            this.removeBrick()
-                           
+                            this.removeBrick();
+                            this.score+=this.scoreCount;
+                            
                         }
                     }
   
@@ -101,20 +106,19 @@ class Brick{
         this.ball.directionY *= -1
     }
 
+    drawScore(){
+        this.ctx.fillStyle = "white"
+        this.ctx.font = "30px Arial";
+        this.yourScore.textContent = this.score;
 
+}
 
-                    
-        }; 
+    drawRandomColor() {
+    var r = 255*Math.random()|0,
+        g = 255*Math.random()|0,
+        b = 255*Math.random()|0;
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
 
-
-
-
-                
-            
-
-        
-
-
-
-
+}
+}
 
