@@ -22,7 +22,7 @@ class Spaceship{
 
     init(){
         this.image = new Image();
-        this.image.src = "/images/spaceship.png"
+        this.image.src = "images/spaceship.png"
         this.createEventListeners()
     }
 

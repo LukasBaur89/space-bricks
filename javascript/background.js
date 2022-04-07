@@ -17,7 +17,7 @@ class Background {
     init(){
         // load new background image
         this.backgroundImage = new Image();
-        this.backgroundImage.src = "/images/space.jpg"
+        this.backgroundImage.src = "images/space.jpg"
     }
 
 

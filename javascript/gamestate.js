@@ -34,6 +34,7 @@ class Gamestate {
         this.gameScreen.classList.remove("hidden");
         this.gameOverScreen.classList.add("hidden");
         this.winScreen.classList.add("hidden");
+        this.game.updateAll();
     }
 
 
@@ -53,18 +54,18 @@ class Gamestate {
 
 
     startGame(){
-        this.startGameBtn.addEventListener("click", () =>{ this.showGameScreen()})
+        this.startGameBtn.onclick = () =>{ this.showGameScreen()}
     }
 
     restartGame(){
-        this.restartGameBtn.addEventListener("click", () =>{
+        this.restartGameBtn.onclick =  () =>{
             this.game.reset(); 
             this.showSplashScreen()
-        })
-        this.playAgainBtn.addEventListener("click", () =>{
+        }
+        this.playAgainBtn.onclick =  () =>{
             this.game.reset(); 
             this.showSplashScreen()
-        })
+        }
     }
 
 

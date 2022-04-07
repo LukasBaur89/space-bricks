@@ -9,6 +9,7 @@ class Game {
         this.ball = null;
         this.spaceship = null;
         this.brick = null;
+        this.intervalId = null;
         /* const sound = new Howl({
             urls: []
         }).play() */
@@ -40,7 +41,7 @@ class Game {
     
     
     updateAll() {
-        const intervalId = setInterval(() => {
+        this.intervalId = setInterval(() => {
             this.clearCanvas();
             this.background.move();
             this.background.draw();
@@ -67,11 +68,12 @@ class Game {
     
 
     reset(){
-        cancelAnimationFrame(this.intervalId);
-        this.background = null;
-        this.ball = null;
-        this.spaceship = null;
-        this.brick = null;
+        clearInterval(this.intervalId);
+        this.init();
+        // this.background = null;
+        // this.ball = null;
+        // this.spaceship = null;
+        // this.brick = null;
     
     }
 
@@ -79,5 +81,4 @@ class Game {
 }
 
 const game = new Game();
-game.updateAll();
 
