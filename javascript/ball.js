@@ -8,7 +8,7 @@ class Ball{
         //requiremenets
         this.ballX = 30;
         this.ballY = 30;
-        this.ballSpeed = 4;
+        this.ballSpeed = 5;
         this.directionX = 1;
         this.directionY = 1;
 

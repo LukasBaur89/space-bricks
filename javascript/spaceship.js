@@ -4,8 +4,8 @@ class Spaceship{
         this.ctx = ctx;
         this.spaceShipX = 500;
         this.spaceShipY = 700;
-        this.width = 150;
-        this.height = 150;
+        this.width = 200;
+        this.height = 200;
         this.speedX = 50;
         this.speedY = 50;
         this.ball = ball

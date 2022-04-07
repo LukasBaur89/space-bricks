@@ -9,9 +9,7 @@ class Gamestate {
         this.gameScreen = document.querySelector(".game-screen");
         this.gameOverScreen = document.querySelector(".game-over-screen");
         this.winScreen = document.querySelector(".game-win-screen");
-        console.log(document.querySelector(".splash-screen"), this.splashScreen)
-
-        
+  
         this.startGameBtn = document.querySelector("#start");
         this.restartGameBtn = document.querySelector("#restart");
         this.playAgainBtn = document.querySelector("#play-again")

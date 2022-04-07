@@ -10,12 +10,10 @@ class Game {
         this.spaceship = null;
         this.brick = null;
         this.intervalId = null;
-        /* const sound = new Howl({
-            urls: []
-        }).play() */
-
-        /* this.startBtn = document.querySelector(".start");
-        this.restartBtn = document.querySelector(".restartBtn"); */
+        /* this.soundOn = new Audio();
+        this.soundOn.src ="/audio/1.mp3"
+        this.soundOff = new Audio();
+        this.soundOn.src ="/audio/1.mp3" */
 
         this.init();
        
@@ -36,7 +34,9 @@ class Game {
         //spaceship
         this.spaceship = new Spaceship(this.canvas, this.ctx, this.ball);
         // brick
-        this.brick = new Brick(this.canvas, this.ctx, this.ball) 
+        this.brick = new Brick(this.canvas, this.ctx, this.ball)
+        // sound
+        this.sound = new Sound(this.sound, this.ctx, this.brick)
     }
     
     
@@ -76,6 +76,7 @@ class Game {
         // this.brick = null;
     
     }
+
 
 
 }

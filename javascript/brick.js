@@ -1,12 +1,17 @@
 class Brick{
-    constructor(canvas, ctx, ball, gamestate){
+    constructor(canvas, ctx, ball, gamestate, sound){
         this.canvas = canvas;
         this.ctx = ctx;
         this.ball = ball;
         this.gamestate = gamestate;
+        this.sound = sound;
+
+        this.fxBrick = new Audio("/audio/2.wav");
+        this.fxBrick.preload = "auto"
+        this.fxBrick.load();
 
         // default variables
-        this.brickRows = 4;
+        this.brickRows = 6;
         this.brickColumns = 17;
         
     
@@ -85,6 +90,7 @@ class Brick{
                             // should return status 0, invert directionY 
                             this.brickArray[r][c].status = 0;
                             this.removeBrick();
+                            this.fxBrick.play();
                             this.score+=this.scoreCount;
                             
                         }
