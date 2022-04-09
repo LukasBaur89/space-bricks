@@ -10,7 +10,6 @@ class Brick{
         this.fxBrick.preload = "auto"
         this.fxBrick.load();
 
-        // default variables
         this.brickRows = 6;
         this.brickColumns = 17;
         
@@ -26,6 +25,7 @@ class Brick{
         this.brickArray = [];
         this.createBrickArray();
 
+        //score
         this.yourScore = document.querySelector(".your-score");
         this.score = 0;
         this.scoreCount = 10;
@@ -46,7 +46,6 @@ class Brick{
                         brickY: r*(this.spaceBetweenY + this.height) + this.spaceBetweenY,
                         status: 1,
                         color: this.drawRandomColor()
-                        // add value 2 and 3 status
                     };     
                 }
             }
@@ -69,9 +68,7 @@ class Brick{
               
         
         collisionWithBallAndBricks(){
-            // if ball touches ball edges, return status status 0
-            
-            
+            // if ball touches ball edges, return status status 0   
             // loop over rows array
             for (let r=0; r<this.brickRows; r++){
             // loop over columns array
@@ -100,13 +97,7 @@ class Brick{
 
         }
     }
-
-    // add sound when ball hits brick
-
-    // when ball hits brick change color, when ball hits brick next time, remove brick
-
-    // add score when ball hits brick
-          
+       
     
     removeBrick(){
         this.ball.directionY *= -1

@@ -18,7 +18,6 @@ class Gamestate {
         this.restartGame();
     }
 
-    // Splash Screen
     showSplashScreen(){
         this.splashScreen.classList.remove("hidden");
         this.gameScreen.classList.add("hidden");
@@ -26,7 +25,6 @@ class Gamestate {
         this.winScreen.classList.add("hidden") ;
     }
 
-    // Game Screen - Win - Gameover
     showGameScreen(){
         this.splashScreen.classList.add("hidden");
         this.gameScreen.classList.remove("hidden");
@@ -34,7 +32,6 @@ class Gamestate {
         this.winScreen.classList.add("hidden");
         this.game.updateAll();
     }
-
 
     showGameOverScreen(){
         this.splashScreen.classList.add("hidden");
@@ -49,7 +46,6 @@ class Gamestate {
         this.gameOverScreen.classList.add("hidden");
         this.winScreen.classList.remove("hidden");
     }
-
 
     startGame(){
         this.startGameBtn.onclick = () =>{ this.showGameScreen()}

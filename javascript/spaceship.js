@@ -10,12 +10,6 @@ class Spaceship{
         this.speedY = 50;
         this.ball = ball
 
-        // use ball coordinates from ball.js
-        // this.ballX = ball.ballX;
-        // this.ballY = ball.ballY;
-
-        
-
         this.init();
     }
 

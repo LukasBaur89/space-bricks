@@ -4,8 +4,6 @@ class Ball{
         this.ctx = ctx;
         this.gamestate = gamestate;
 
-
-        //requiremenets
         this.ballX = 30;
         this.ballY = 30;
         this.ballSpeed = 5;
@@ -65,7 +63,6 @@ class Ball{
 
     // reset ball to middle of screen
     resetBall(){
-        // x and y position, height, width -> should return width and height / 2
         this.ballX = this.canvas.width/2;
         this.ballY = this.canvas.height-500
     }
@@ -79,7 +76,6 @@ class Ball{
         }
 
         this.ctx.fillStyle = "white";
-        /* this.ctx.font = "40px" */
         this.lives.innerHTML = this.livesRemaining;
     }
 

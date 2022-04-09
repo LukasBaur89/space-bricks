@@ -10,10 +10,6 @@ class Game {
         this.spaceship = null;
         this.brick = null;
         this.intervalId = null;
-        /* this.soundOn = new Audio();
-        this.soundOn.src ="/audio/1.mp3"
-        this.soundOff = new Audio();
-        this.soundOn.src ="/audio/1.mp3" */
 
         this.init();
        
@@ -52,7 +48,6 @@ class Game {
             this.brick.drawAllBricks();
             this.brick.collisionWithBallAndBricks()
             this.brick.drawScore();
-            // o: new bricks drawn as array
             // only call if you collide with the spaceship
             if(this.spaceship.collisionCheck()) {
                 // revert the ball direction

@@ -1,10 +1,8 @@
 class Background {
     constructor(canvas,ctx){
-        // setup default variables
         this.canvas = canvas;
         this.ctx = ctx;
 
-        // requirements
         this.coordinateX = 0;
         this.coordinateY = 0;
         this.width = this.canvas.width;
@@ -33,9 +31,7 @@ class Background {
                 this.height,
             );
             this.ctx.drawImage(
-                // The image,
                 this.backgroundImage,
-                // x Coord,
                 this.coordinateX,
                 this.coordinateY - this.height,
                 this.width,
