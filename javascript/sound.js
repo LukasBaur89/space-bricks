@@ -6,7 +6,7 @@ class Sound{
         this.soundOnButton = document.querySelector("#sound-on");
         this.soundOffButton = document.querySelector("#sound-off");
 
-        this.soundOn = new Audio("/audio/1.mp3");
+        this.soundOn = new Audio("audio/1.mp3");
         this.soundOn.volume = .15;
         this.soundOn.preload = "auto";
         this.soundOn.load();     

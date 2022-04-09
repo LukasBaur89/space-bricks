@@ -6,7 +6,7 @@ class Brick{
         this.gamestate = gamestate;
         this.sound = sound;
 
-        this.fxBrick = new Audio("/audio/2.wav");
+        this.fxBrick = new Audio("audio/2.wav");
         this.fxBrick.preload = "auto"
         this.fxBrick.load();
 

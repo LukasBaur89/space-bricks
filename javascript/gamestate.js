@@ -22,7 +22,7 @@ class Gamestate {
         this.splashScreen.classList.remove("hidden");
         this.gameScreen.classList.add("hidden");
         this.gameOverScreen.classList.add("hidden");
-        this.winScreen.classList.add("hidden") ;
+        this.winScreen.classList.add("hidden");
     }
 
     showGameScreen(){
