@@ -1,13 +1,12 @@
-@import url(//db.onlinewebfonts.com/c/b6b659335771a5cd77643294d0f6c6a4?family=Arkanoid+Solid);
-
-html, 
+@import url('//db.onlinewebfonts.com/c/b6b659335771a5cd77643294d0f6c6a4?family=Arkanoid+Solid');
+@font-face {font-family: "Arkanoid Solid"; src: url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.eot"); src: url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.woff") format("woff"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.svg#Arkanoid Solid") format("svg"); }
 body {
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: "Arkanoid Solid"; src: url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.eot"); src: url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.woff") format("woff"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.svg#Arkanoid Solid") format("svg");
+    font-family: "Arkanoid Solid";
     font-size: 1.5rem;
     color: white;
     background: url(../images/container-background.jpg) no-repeat fixed;
@@ -34,7 +33,7 @@ body {
 
 /* style buttons */
 button {
-    font-family: "Arkanoid Solid"; src: url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.eot"); src: url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.woff") format("woff"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/b6b659335771a5cd77643294d0f6c6a4.svg#Arkanoid Solid") format("svg");
+    font-family: "Arkanoid Solid";
     height: 100px;
     width: 330px;
     padding: 1em 1.5em;
